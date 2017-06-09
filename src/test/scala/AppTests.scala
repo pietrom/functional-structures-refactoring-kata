@@ -1,6 +1,7 @@
-import App._
-import Models._
 import org.scalatest.FunSuite
+
+import fprefactoring.models._
+import fprefactoring.storage._
 
 class AppTests extends FunSuite {
 
@@ -8,7 +9,7 @@ class AppTests extends FunSuite {
     val cartId = CartId("some-gold-cart")
     val storage = new SpyStorage
 
-    applyDiscount(cartId, storage)
+    App.applyDiscount(cartId, storage)
 
     assert(storage.saved.get == Cart(CartId("some-gold-cart"),CustomerId("gold-customer"),50.0) )
   }
@@ -17,7 +18,7 @@ class AppTests extends FunSuite {
     val cartId = CartId("some-normal-cart")
     val storage = new SpyStorage
 
-    applyDiscount(cartId, storage)
+    App.applyDiscount(cartId, storage)
 
     assert(storage.saved.isEmpty)
   }
@@ -26,7 +27,7 @@ class AppTests extends FunSuite {
     val cartId = CartId("missing-cart")
     val storage = new SpyStorage
 
-    applyDiscount(cartId, storage)
+    App.applyDiscount(cartId, storage)
 
     assert(storage.saved.isEmpty)
   }

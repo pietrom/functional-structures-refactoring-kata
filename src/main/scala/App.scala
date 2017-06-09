@@ -1,4 +1,6 @@
-import Models._
+package fprefactoring.models
+
+import fprefactoring.storage._
 
 object App {
 

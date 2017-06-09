@@ -1,4 +1,4 @@
-object Models {
+package fprefactoring.models
 
   case class CustomerId(value: String)
 
@@ -15,4 +15,3 @@ object Models {
     val noDiscount = DiscountRule(_ => throw new RuntimeException("no discount"))
   }
 
-}

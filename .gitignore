@@ -5,3 +5,7 @@ project/target/*
 
 ### Intellij ###
 .idea/*
+/bin/
+.classpath 
+.project
+.settings
